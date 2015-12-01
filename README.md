@@ -9,6 +9,6 @@ It is required to create the application allowing from the existing course in th
 #Solution
 <p>The project is created in the environment VS13 C# wpf</p>
 <p>The used templates MVVM, Command, Abstract factory, Builder, Adapter</p>
-<p>The used technologies and languages XML, XSLT, HTML5, CSS3, YavaScript/jQuery, bootstrap</p>
+<p>The used technologies and languages XML, XSLT, HTML5, CSS3, JavaScript/jQuery, bootstrap</p>
 
 
