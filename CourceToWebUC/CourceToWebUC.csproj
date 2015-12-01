@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{786C5B60-E754-4096-98B3-7AB54A86876C}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CourceToWebUC</RootNamespace>
+    <AssemblyName>CourceToWebUC</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ContentLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\ContentLib.dll</HintPath>
+    </Reference>
+    <Reference Include="FormatConvertors, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\FormatConvertors.dll</HintPath>
+    </Reference>
+    <Reference Include="saxon9pe-api, Version=9.5.1.10, Culture=neutral, PublicKeyToken=e1fdd002d5083fe6, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\saxon9pe-api.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Exception\LogException.cs" />
+    <Compile Include="Model\CommonModels\ItemStepModel.cs" />
+    <Compile Include="Model\CommonModels\ITool.cs" />
+    <Compile Include="Model\CommonModels\Tool.cs" />
+    <Compile Include="Model\CommonModels\ToolImgParam.cs" />
+    <Compile Include="Model\CommonModels\ToolsFactory.cs" />
+    <Compile Include="Model\CommonParams.cs" />
+    <Compile Include="Model\Helpers\Cripto.cs" />
+    <Compile Include="Model\Helpers\DirectoryValidator.cs" />
+    <Compile Include="Model\Helpers\FileConvertor.cs" />
+    <Compile Include="Model\Helpers\FileNameValidator.cs" />
+    <Compile Include="Model\Helpers\PathExtensions.cs" />
+    <Compile Include="Model\Helpers\ItemExtensions.cs" />
+    <Compile Include="Model\CommonModels\IDataService.cs" />
+    <Compile Include="Model\CommonModels\ICourseModel.cs" />
+    <Compile Include="Model\CommonModels\IItemModel.cs" />
+    <Compile Include="Model\CommonModels\ItemEventArgs.cs" />
+    <Compile Include="Model\CommonModels\Notifier.cs" />
+    <Compile Include="Model\IParamValidator.cs" />
+    <Compile Include="Model\XSLTHelpers\FlashSettings.cs" />
+    <Compile Include="Model\XSLTHelpers\NodeNames.cs" />
+    <Compile Include="Model\CommonModels\StepMarkModel.cs" />
+    <Compile Include="Model\xslt\Convertors\ScormXSLTConvertor.cs" />
+    <Compile Include="Model\xslt\Convertors\ConvertorFactory.cs" />
+    <Compile Include="Model\xslt\Convertors\Settings.cs" />
+    <Compile Include="Model\xslt\Convertors\ThemeXSLTHTML5.cs" />
+    <Compile Include="Model\xslt\Items\IFileCopir.cs" />
+    <Compile Include="Model\xslt\Items\ToolForXSLT.cs" />
+    <Compile Include="Model\xslt\Convertors\ThemeplateXSLTConvertor.cs" />
+    <Compile Include="Model\xslt\CourseModelForXSLT.cs" />
+    <Compile Include="Model\xslt\DataLoader\DataServiceXSLTLib.cs" />
+    <Compile Include="Model\IDataValidator.cs" />
+    <Compile Include="Model\xslt\Items\ISubItemForXSLT.cs" />
+    <Compile Include="Model\xslt\Items\ItemQestionForXSLT.cs" />
+    <Compile Include="Model\xslt\Items\ItemStepForXSLT.cs" />
+    <Compile Include="Model\xslt\Items\ItemTestForXSLT.cs" />
+    <Compile Include="Model\xslt\DataLoader\SerializeXSLTParams.cs" />
+    <Compile Include="Model\xslt\DataLoader\XSLTParamFromXML.cs" />
+    <Compile Include="Model\xslt\Items\IItemModelForXSLT.cs" />
+    <Compile Include="Model\IConvertParam.cs" />
+    <Compile Include="Model\IOperationModel.cs" />
+    <Compile Include="Model\xslt\Items\ItemSectionForXSLT.cs" />
+    <Compile Include="Model\xslt\Items\ItemThemeForXSLT.cs" />
+    <Compile Include="Model\xslt\Convertors\ContentXSLTConvertor.cs" />
+    <Compile Include="Model\xslt\Convertors\TestXSLTConvertor.cs" />
+    <Compile Include="Model\xslt\Convertors\ThemeXSLTConvertor.cs" />
+    <Compile Include="Model\xslt\Convertors\XSLTConvertorBase.cs" />
+    <Compile Include="Model\xslt\Convertors\XSLTConvertorHTML5.cs" />
+    <Compile Include="Model\xslt\Convertors\XSLTConvertor.cs" />
+    <Compile Include="Model\xslt\Params\IXSLTConvertParam.cs" />
+    <Compile Include="Model\xslt\Params\XSLTConvertParams.cs" />
+    <Compile Include="Model\xslt\Items\XSLTItemsFactory.cs" />
+    <Compile Include="ViewModel\Helper\ThreadConvHelper.cs" />
+    <Compile Include="ViewModel\IConvertView.cs" />
+    <Compile Include="ViewModel\ItemsView\ConvertCommand.cs" />
+    <Compile Include="ViewModel\ItemsView\CourseViewModel.cs" />
+    <Compile Include="ViewModel\ItemsView\ICourseUC.cs" />
+    <Compile Include="ViewModel\ItemsView\ICourseViewModel.cs" />
+    <Compile Include="ViewModel\ItemsView\IItemViewModel.cs" />
+    <Compile Include="ViewModel\ItemsView\ItemViewModel.cs" />
+    <Compile Include="UCCourse.xaml.cs">
+      <DependentUpon>UCCourse.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\ItemsView\VirtualToggleButton.cs" />
+    <Compile Include="ViewModel\IParamsView.cs" />
+    <Compile Include="ViewModel\XSLTConvertView.cs" />
+    <Compile Include="ViewModel\XSLTParamsView.cs" />
+    <Compile Include="View\Helpers\IOpenDirDialog.cs" />
+    <Compile Include="View\Helpers\IOpenFileDialog.cs" />
+    <Compile Include="View\Helpers\OpenDirDilogHelper.cs" />
+    <Compile Include="View\Helpers\OpenFileParamHelper.cs" />
+    <Compile Include="View\Helpers\WndProgressBar.xaml.cs">
+      <DependentUpon>WndProgressBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Validations\UserFileAccessRights.cs" />
+    <Compile Include="View\Validations\FolderTryValidation.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="UCCourse.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Helpers\WndProgressBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="SWFToImage">
+      <Guid>{F52B2898-3CD9-4530-8F1E-2762A2783C33}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CommonConvertLib\CommonConvertLib.csproj">
+      <Project>{8ccd3077-d010-4522-ae70-252f97cac5da}</Project>
+      <Name>CommonConvertLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SwfConvertor\SWFToHTML5\SWFToHTML5.csproj">
+      <Project>{72688552-e27e-4bb0-b930-b65160ce0b70}</Project>
+      <Name>SWFToHTML5</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

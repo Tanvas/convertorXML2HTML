@@ -1,0 +1,15 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="CourceToWebUC.View.Helpers.WndProgressBar"
+        Title="Процесс конвертации"  WindowStartupLocation="CenterOwner" ShowInTaskbar="False" WindowStyle="None" ResizeMode="NoResize" d:DesignWidth="575.453" d:DesignHeight="397.112">
+    <Grid>
+        <ProgressBar HorizontalAlignment="Left" Height="16" Margin="119,339,0,0" VerticalAlignment="Top" Width="322" IsIndeterminate="True"/>
+        <TextBlock Name="tbStatus"  Margin="0,38,0,74" RenderTransformOrigin="0.508,1.334" />
+        <Button x:Name="btnCancel" Content="Отмена" HorizontalAlignment="Right" Margin="0,0,23,10" Width="75" Height="22" VerticalAlignment="Bottom" Click="btnCancel_Click"/>
+        <Label Content="Идет конвертация курса. " HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="Это может занять несколько минут." HorizontalAlignment="Left" Margin="180,10,0,0" VerticalAlignment="Top"/>
+        <Rectangle  HorizontalAlignment="Left" Height="397" Stroke="Black" VerticalAlignment="Top" Width="575"/>
+
+    </Grid>
+</Window>

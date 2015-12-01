@@ -1,0 +1,109 @@
+﻿<UserControl x:Class="CourceToWebUC.UCCourse"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:dw="clr-namespace:CourceToWebUC.ViewModel"
+              xmlns:local="clr-namespace:CourceToWebUC.View.Validations"
+             
+             mc:Ignorable="d" 
+             d:DesignHeight="346.667" d:DesignWidth="881.533">
+    <UserControl.Resources>
+        <ResourceDictionary>
+
+            <Style x:Key="TreeViewItemStyle" TargetType="TreeViewItem">
+                <Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=OneTime}" />
+                <Setter Property="IsSelected" Value="{Binding IsInitiallySelected, Mode=OneTime}" />
+                <Setter Property="KeyboardNavigation.AcceptsReturn" Value="True" />
+                <Setter Property="dw:VirtualToggleButton.IsVirtualToggleButton" Value="True" />
+                <Setter Property="dw:VirtualToggleButton.IsChecked" Value="{Binding IsChecked}" />
+            </Style>
+            <HierarchicalDataTemplate 
+        x:Key="CheckBoxItemTemplate"
+        ItemsSource="{Binding Children, Mode=OneTime}"  >
+                <StackPanel Orientation="Horizontal">
+                    <!-- These elements are bound to a FooViewModel object. -->
+                    <CheckBox
+            Focusable="False" 
+            IsChecked="{Binding IsChecked}" 
+            VerticalAlignment="Center"
+            />
+                    <ContentPresenter 
+            Content="{Binding Name, Mode=OneTime}" 
+            Margin="2,0"
+            />
+                </StackPanel>
+            </HierarchicalDataTemplate>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="343*"/>
+            <ColumnDefinition Width="450"/>
+        </Grid.ColumnDefinitions>
+        <DockPanel Grid.Column="0" Grid.Row="0" Width="auto" RenderTransformOrigin="0.572,0.497">
+            <Button 
+      DockPanel.Dock="Bottom" 
+      Command="Undo"
+      Content="Отменить выделение" 
+      HorizontalAlignment="Center"
+      Margin="0,2"
+      Padding="8,0"
+      />
+            <Button 
+      DockPanel.Dock="Bottom" 
+      Command="Redo"
+      Content="Выбрать все" 
+      HorizontalAlignment="Center"
+      Margin="0,2"
+      Padding="8,0"
+      />
+
+            <TreeView 
+      x:Name="tree"
+      ItemContainerStyle="{StaticResource TreeViewItemStyle}"
+      ItemsSource="{Binding Mode=OneTime}"
+      ItemTemplate="{StaticResource CheckBoxItemTemplate}" Width="auto"
+      />
+
+        </DockPanel>
+        <StackPanel Name="pnlConvParam" IsEnabled="false" Grid.Column="1" Grid.Row="0"  Margin="5,0,10,0">
+           
+            <Label DockPanel.Dock="Top" VerticalAlignment="Top" Margin="10,50,10,10" >
+                <TextBlock Height="20" BaselineOffset="10"  TextWrapping="Wrap" Width="402">
+                    Укажите файл шаблона
+                </TextBlock>
+            </Label>
+            <StackPanel  Height="31" Orientation="Horizontal">
+                <TextBox Height="23" VerticalAlignment="Top" x:Name="tbParam"  Width="250" Text="{Binding ParamPath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <Button x:Name="openFileDilog" Content="..." Height="21"  Width="49" VerticalAlignment="Top" HorizontalAlignment="Right" Click="openFileDilog_Click"/>
+            </StackPanel>
+            <Label DockPanel.Dock="Top" VerticalAlignment="Top" Margin="10,50,10,10" Height="40" >
+                <TextBlock Height="47" BaselineOffset="10"  TextWrapping="Wrap" Width="239">
+                    Укажите папку для сконвертированного курса (папка должна быть создана и пуста)
+                </TextBlock>
+            </Label>
+            <StackPanel  Height="31" Orientation="Horizontal">
+                <TextBox Height="23" VerticalAlignment="Top" Name="tbPath"  Width="251" HorizontalAlignment="Left" RenderTransformOrigin="0.5,2.552" >
+                    <Binding  Path="RootPath" UpdateSourceTrigger="PropertyChanged"  Mode="TwoWay" NotifyOnValidationError="True">
+                        <Binding.ValidationRules>
+                            <local:FolderTryValidation/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox>
+                <Button x:Name="openDirDilog" Content="..." Height="21"  Width="49" VerticalAlignment="Top" HorizontalAlignment="Right" Click="openDirDilog_Click"/>
+            </StackPanel>
+            <CheckBox Name="IsScorm" IsChecked="{Binding Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Path=IsToScorm}">Формировать Scorm пакет</CheckBox>
+            <Button 
+      DockPanel.Dock="Bottom" 
+     Name="convBtn"
+      
+      Content="Конвертировать" 
+      HorizontalAlignment="Right"
+      Margin="0,2"
+      Padding="8,0"
+                
+      />
+        </StackPanel>
+    </Grid>
+</UserControl>
